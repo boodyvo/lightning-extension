@@ -32,6 +32,7 @@ export default class LightningProvider {
     }
 
     async makeInvoice(amount = DEFAULT_AMOUNT, memo = "") {
+        console.log("Will create invoice", amount, memo);
         return this.request(types.addInvoice, {
             amt: amount,
             memo,

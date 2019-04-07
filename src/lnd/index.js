@@ -50,12 +50,14 @@ export default class Lnd {
     }
 
     async addInvoice(args) {
+        console.log("Will prepare  invoice", args);
         let body = {
-            amt: args.amt,
+            value: args.amt,
         };
         if (args.memo) {
             body.memo = args.memo;
         }
+        console.log("Will create  invoice", body);
         return this.api.post("/invoices", body);
     }
 
