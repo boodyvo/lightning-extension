@@ -1,0 +1,26 @@
+{
+  "name": "lightning-extension",
+  "version": "0.0.1",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rimraf dist-dev && cross-env NODE_ENV=development webpack --display-error-details",
+    "dev": "rimraf dist-dev && cross-env NODE_ENV=development webpack -w --display-error-details"
+  },
+  "author": "boodyvo",
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "babel-loader": "^8.0.5",
+    "copy-webpack-plugin": "^5.0.2",
+    "webextension-polyfill": "^0.4.0",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "cross-env": "^5.2.0",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4"
+  }
+}
