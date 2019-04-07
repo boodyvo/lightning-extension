@@ -2,7 +2,7 @@ import axios from "axios/index";
 import https from "https";
 import { types } from "general";
 
-const URL = "https://127.0.0.1:8080/v1";
+const URL = "https://192.168.0.104:8080/v1";
 
 export default class Lnd {
     constructor(url = URL) {
@@ -19,6 +19,10 @@ export default class Lnd {
 
     async getInfo() {
         return this.api.get("/getinfo");
+    }
+
+    async walletBalance() {
+        return this.api.get("/balance/channels");
     }
 
     async payInvoice(args) {
@@ -55,6 +59,8 @@ export default class Lnd {
         switch(type) {
             case types.getInfo:
                 return this.getInfo();
+            case types.walletBalance:
+                return this.walletBalance();
             case types.addInvoice:
                 return this.addInvoice(args);
             case types.payInvoice:

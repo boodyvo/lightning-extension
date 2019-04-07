@@ -10,6 +10,10 @@ export default class LightningProvider {
         });
     }
 
+    async walletBalance() {
+        return this.request(types.walletBalance);
+    }
+
     async verifyMessage(message, signature) {
         return this.request(types.verifyMessage, {
             msg: message,
