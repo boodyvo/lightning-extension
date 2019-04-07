@@ -32,10 +32,14 @@ export default class Lnd {
     }
 
     async signMessage(args) {
-        console.log("Signing message", args);
         return this.api.post("/signmessage", {
             msg: Buffer.from(args.msg.toString()).toString('base64'),
         });
+    }
+
+    async checkInvoice(args) {
+        console.log("Will check inveoice", args);
+        return this.api.get(`/invoice/${args.r_hash_str}`);
     }
 
     async verifyMessage(args) {
@@ -69,6 +73,8 @@ export default class Lnd {
                 return this.signMessage(args);
             case types.verifyMessage:
                 return this.verifyMessage(args);
+            case types.checkInvoice:
+                return this.checkInvoice(args);
 
         }
     }

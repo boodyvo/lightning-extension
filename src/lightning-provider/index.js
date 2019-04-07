@@ -38,6 +38,12 @@ export default class LightningProvider {
         });
     }
 
+    async checkInvoice(rHashStr) {
+        return this.request(types.checkInvoice, {
+            r_hash_str: rHashStr
+        });
+    }
+
     async request(type, args = {}) {
         const customuuid = uuid();
         return new Promise((resolve, reject) => {

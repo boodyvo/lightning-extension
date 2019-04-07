@@ -4,11 +4,14 @@ const signMessage = "signmessage";
 const verifyMessage = "verifymessage";
 const payInvoice = "payinvoice";
 const walletBalance = "walletbalance";
+const checkInvoice = "checkinvoice";
 
 export {
     getInfo,
     addInvoice,
     signMessage,
     verifyMessage,
-    payInvoice
+    payInvoice,
+    walletBalance,
+    checkInvoice
 }
