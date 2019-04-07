@@ -26,6 +26,7 @@ export default class Lnd {
     }
 
     async payInvoice(args) {
+        console.log("Will pay invoice", args);
         return this.api.post("/channels/transactions", {
             payment_request: args.payment_request,
         });
@@ -38,7 +39,7 @@ export default class Lnd {
     }
 
     async checkInvoice(args) {
-        console.log("Will check inveoice", args);
+        console.log("Will check invoice", args);
         return this.api.get(`/invoice/${args.r_hash_str}`);
     }
 

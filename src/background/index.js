@@ -11,14 +11,14 @@ browser.runtime.onInstalled.addListener(function() {
 });
 
 browser.runtime.onMessage.addListener(function(request) {
-    console.log("Message", request);
+    // console.log("Message", request);
     if (!request || request.application !== consts.extensionName)
         return;
 
     const response = lnd.call(request.type, request.args);
 
     return response.then(data => {
-        console.log("Promise will return", request.uuid);
+        // console.log("Promise will return", request.uuid);
         return {
             uuid: request.uuid,
             data
